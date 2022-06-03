@@ -102,7 +102,11 @@ public class main {
                     final MessageChannel channel = message.getChannel().block();
 
                     InputStream fileAsInputStream = null;
-
+                    try{
+                        fileAsInputStream = new FileInputStream("C:\\Users\\alex0\\Downloads\\examen.pdf");
+                    } catch (FileNotFoundException e) {
+                        System.out.println("Error en la descarga del archivo " +e.getMessage());
+                    }
 
 
                 }
