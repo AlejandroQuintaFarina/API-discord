@@ -27,13 +27,13 @@ public class main {
             EmbedCreateSpec embed = EmbedCreateSpec.builder()
                     .color(Color.GREEN)
                     .title("El doritos")
-                    .image("attachment://descarga.png")
+                    .image("attachment://todd.png")
                     .build();
 
             puerto.on(MessageCreateEvent.class).subscribe(event -> {
                 //Se crea el evento de recibir un mensaje
                 final Message message = event.getMessage();
-                // se crea una igualdad con el mensaje recibido y buscando el canal en el que se escribió se devuelve el mensaje en ese canal.
+                // se crea una igualdad con el mensaje recibido y buscando el canal en el que se escribió se devuelve el mensaje en ese canal
                 if ("!hey".equals(message.getContent())) {
                     final MessageChannel channel = message.getChannel().block();
 
@@ -69,7 +69,7 @@ public class main {
 
                     InputStream fileAsInputStream = null;
                     try {
-                        fileAsInputStream = new FileInputStream("C:\\Users\\alex0\\OneDrive\\Escritorio\\descarga.png");
+                        fileAsInputStream = new FileInputStream("C:\\Users\\alex0\\OneDrive\\Escritorio\\todd.png");
                     } catch (FileNotFoundException e) {
                         System.out.println("Error lectura de fichero" + e.getMessage());
                     }
@@ -96,6 +96,14 @@ public class main {
                             .addFile("your_aux.jpeg",fileAsInputStream)
                             .addEmbed(embed)
                             .build()).subscribe();
+                }
+
+                if("!/pdf".equals(message.getContent())){
+                    final MessageChannel channel = message.getChannel().block();
+
+                    InputStream fileAsInputStream = null;
+
+
                 }
             });
 
